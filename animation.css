@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+}
+
+#scene {
+
+    position: relative;
+    width: 70vw;
+    height: 90vw;
+
+    margin: 0 auto;
+
+    overflow: hidden
+}
+
+#baggrund {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: url(son_of_man.jpg);
+    background-size: 100%;
+}
+
+#aeble {
+
+    position: absolute;
+    width: 28vw;
+    height: 30.3vw;
+
+    top: 21vw;
+    left: 22vw;
+
+    background-image: url(aeble.png);
+    background-size: 100%;
+
+    animation-name: aeble;
+    /* animationens navn (kan være alt) */
+    animation-duration: 5s;
+    /* hastighed på animation */
+    animation-iteration-count: infinite;
+    /* gør at animation gentager sig (ikke nødvendig) */
+    animation-direction: alternate;
+    /* gør at den går frem og tilbage - kan også ændres, så det hele tiden køre samme retning */
+    animation-timing-function: linear;
+    /* bruges f.eks. hvis man animere skyer, og de skal køre den samme retning */
+    animation-fill-mode: forwards;
+
+
+}
+
+/* keyframes bruges til at sætte animationen. 0% er hvor den starter, 50% er i midten af animationen, osv. */
+
+@keyframes aeble {
+
+    0% {
+
+        transform: translateX(-100vw) scale(4);
+        /* bruges til at sætte hvor æblet starter, og hvilken størrelse den er */
+    }
+
+    50% {
+
+        transform: translateX(0) scale(4);
+        /* kun æblets position ændres, størrelse er stadig det samme */
+    }
+
+    100% {
+
+        transform: translateX(0) scale(.0);
+        /* her ændres størrelsen, men først efter at æblet har skiftet position, som den gjorde på 50% */
+    }
+
+}
+
+
+
+/*   en nemmere måde at skrive det på er dette:
+
+@keyframes aeble {
+
+from {
+
+transform: scale(4) rotate(0deg) perspective(70vw) rotateY(0deg);
+
+}
+
+to {
+
+transform: scale(0.8) rotate(360deg) perspective(70vw) rotateY(180deg);
+
+}
+
+}
+
+sådan kan man gøre det, hvis der ikke er noget der skal ændres undervejs.
